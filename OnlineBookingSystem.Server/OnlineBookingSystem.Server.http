@@ -1,0 +1,6 @@
+@OnlineBookingSystem.Server_HostAddress = http://localhost:5025
+
+GET {{OnlineBookingSystem.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

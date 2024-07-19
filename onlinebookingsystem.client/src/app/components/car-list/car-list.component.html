@@ -1,0 +1,66 @@
+<app-loading [isLoading]="isLoading"></app-loading>
+
+<div class="mat-elevation-z8 mat-table-container">
+  <div class="header-container">
+    <div class="filter-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="mat-table-wrapper">
+    <table mat-table [dataSource]="dataSource" class="mat-table" matSort>
+
+      <ng-container matColumnDef="carName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.carName}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="carModel">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Model </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.carModel}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="carType">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.carType}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="carBrand">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Brand </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.carBrand}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="pricePerDay">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Price Per Day </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.pricePerDay | currency}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="vehicleNumber">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Vehicle No. </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.vehicleNumber}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+          <button mat-icon-button (click)="addCar()" class="add-icon">
+            <mat-icon color="primary" >add</mat-icon>
+          </button>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="editCar(element.carId)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="openDeleteConfirmation(element.carId)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </table>
+  </div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

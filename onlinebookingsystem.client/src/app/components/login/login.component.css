@@ -1,0 +1,29 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  /* height: 100vh; */
+  height: calc(100vh - 64px); /* Adjust height to account for toolbar */
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.register-link {
+  margin-top: 16px;
+  text-align: center;
+}

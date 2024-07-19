@@ -1,0 +1,21 @@
+<app-loading [isLoading]="isLoading"></app-loading>
+<div class="container">
+  <mat-card *ngIf="booking">
+    <mat-card-header>
+      <mat-card-title>Booking Confirmation</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="baseUrl+booking.car.imageUrl" alt="{{ booking.car.carModel }}">
+    <mat-card-content>
+      <p><strong>Booking No:</strong> {{ booking.bookingNo }}</p>
+      <p><strong>Customer Name:</strong> {{ booking.customerName }}</p>
+      <p><strong>Car Model:</strong> {{ booking.car.carModel }}</p>
+      <p><strong>Vehicle No:</strong> {{ booking.car.vehicleNumber }}</p>
+      <p><strong>Rental Rate:</strong> {{ booking.car.pricePerDay | currency }}</p>
+      <p><strong>Rental Period:</strong> {{ booking.rentalStartDate | date }} - {{ booking.rentalEndDate | date }}</p>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions class="actions">
+      <button mat-raised-button color="primary" routerLink="/home">Back to Home</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

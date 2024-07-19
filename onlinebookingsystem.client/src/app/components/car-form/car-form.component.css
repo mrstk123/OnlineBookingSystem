@@ -1,0 +1,53 @@
+.car-form-header {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.car-form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  /* justify-content: space-between; */
+}
+
+
+@media (min-width: 768px) {
+  .mat-form-field {
+    flex: 1 1 calc(33.33% - 16px); /* Three fields per row, with 16px gap */
+    max-width: calc(33.33% - 16px); /* Maximum width of each field for three fields per row */
+  }
+}
+
+.form-actions {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px; /* Adjust margin as needed */
+}
+
+
+/* src/app/components/car-form/car-form.component.css */
+
+.mat-form-field {
+  flex: 1 1 calc(33.333% - 16px); /* Adjusting to fit 3 fields in a row */
+  max-width: calc(33.333% - 16px); /* Adjusting to fit 3 fields in a row */
+  min-width: 200px; /* Minimum width to prevent stretching */
+}
+
+@media (max-width: 768px) {
+  .form-field {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end; /* Aligning buttons to the right */
+  width: 100%;
+  margin-top: 20px;
+}
+
+.form-actions button {
+  margin-left: 10px;
+}

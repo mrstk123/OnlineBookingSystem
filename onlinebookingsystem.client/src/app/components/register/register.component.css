@@ -1,0 +1,29 @@
+.register-card {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: calc(50% - 5px);
+  padding-right: 5px;
+}
+
+.register-button {
+  margin-top: 20px;
+  align-self: flex-end;
+}

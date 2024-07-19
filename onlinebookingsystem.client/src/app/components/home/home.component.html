@@ -1,0 +1,42 @@
+<app-loading [isLoading]="isLoading"></app-loading>
+<div class="home-container">
+  <div class="filter-form">
+    <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+      <mat-form-field>
+        <mat-label>Car Type</mat-label>
+        <mat-select formControlName="carType">
+          <mat-option *ngFor="let type of carTypes" [value]="type">{{ type }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Price Range</mat-label>
+        <mat-select formControlName="priceRange">
+          <mat-option *ngFor="let range of priceRanges" [value]="range.value">{{ range.label }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="filter-buttons">
+        <button mat-button type="submit" color="primary">Apply Filters</button>
+        <button mat-button type="button" color="warn" (click)="clearFilters()">Clear Filters</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="car-list">
+    <div *ngFor="let car of filteredCars" class="car-card">
+      <mat-card>
+        <img mat-card-image [src]="baseUrl+car.imageUrl" alt="{{ car.carModel }}">
+        <mat-card-title>{{ car.carModel }}</mat-card-title>
+        <mat-card-content>
+          <!-- <p>{{ car.carType }}</p> -->
+          <p>{{ car.carBrand }}</p>
+        </mat-card-content>
+        <mat-card-subtitle>{{ car.pricePerDay | currency }}</mat-card-subtitle>
+        <mat-card-actions class="actions">
+          <button mat-raised-button color="primary" [routerLink]="['/booking', car.carId]">Book Now</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
